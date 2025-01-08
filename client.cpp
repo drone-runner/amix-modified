@@ -29,6 +29,9 @@ WINDOW *stdscr;
 
 int main(int argc, char *argv[])
 {
+
+reco:
+
   short nickStatus[2] = {0x0582, 0x0001};
   AmiXCommandlineParser options(argc, argv);
 
@@ -64,10 +67,10 @@ int main(int argc, char *argv[])
       ;
   }
 
-  if (!options.latin2)
-  {
-    setlocale(LC_ALL, "");
-  }
+//  if (!options.latin2)
+//  {
+//    setlocale(LC_ALL, "");
+//  }
 
   try
   {
@@ -109,7 +112,7 @@ int main(int argc, char *argv[])
       case 1:
         interface->put(" Wyłącz komputer i wyjdź z domu.");
         interface->nl();
-        interface->put(" Może pod twoim blokiem nawalają się magowie^Wdresiarze!?.");
+        interface->put(" Może pod twoim blokiem nawalają się dresiarze!?");
         break;
 
       case 2:
@@ -147,6 +150,7 @@ int main(int argc, char *argv[])
     init_pair(COLOR_CYAN, COLOR_CYAN, COLOR_BLACK);
 
     boost::asio::io_service io_service;
+
     connection = new PolchatConnection(options.host, options.port, options.period);
     while (run || connected)
     {
@@ -236,6 +240,13 @@ int main(int argc, char *argv[])
           inputstring.replace(0, 5, "/quit");
           ppart = new part(inputstring);
           connection->sendDelayed(ppart);
+        }
+        if (0 == ncsstrncmp(inputstring, "/reco ", 6) || 0 == ncsstrncmp(inputstring, "/reco", 6))
+        {
+	  delete connection;
+	  delete interface;
+	  closelog();
+	  goto reco;
         }
         else if (0 == ncsstrncmp(inputstring, "/busy ", 6) || 0 == ncsstrncmp(inputstring, "/busy", 6))
         {
@@ -346,13 +357,15 @@ int main(int argc, char *argv[])
           chatrooms.currentroom().msg("<B>/exit</B> - komenda analogiczna do polchatowego /quit, ale "
                         "dodatkowo konczy prace programu",
                         true);
+          chatrooms.currentroom().msg("<B>/reco</B> - przerwij polaczenie i podlacz na nowo",
+			true);
           chatrooms.currentroom().msg("<B>/help</B> - wyswietla tekst pomocy",
-          true);
+                        true);
           chatrooms.currentroom().msg("<B>/lama</B> - wysyla tekst: &quot;" 
                         "thankfully alert gauchos were able to save the llama "
                         "before it was swept into the blades of the turbine&quot;",
                         true);
-          chatrooms.currentroom().msg("<B>/ver</B> - podaje wersje programu", true); 
+          chatrooms.currentroom().msg("<B>/ver</B>  - podaje wersje programu", true); 
           interface->print();
         }
         else if ((0 == ncsstrncmp(inputstring, "/part ", 6) || 0 == ncsstrncmp(inputstring, "/part", 6)) && !(*(chatrooms.current)).room)
