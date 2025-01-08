@@ -1,26 +1,40 @@
-Ta wersja zostala zmodyfikowana pod czat polfan.pl
-w roku 2025 przez uzytkownika Polfanu -- DMB.
+(For international users: this is at least Polish software,
+so you would need to know Polish language anyway.)
 
-Kompilacja:
+*Ta wersja zostala zmodyfikowana pod czat polfan.pl
+w styczniu roku 2025 przez uzytkownika Polfanu -- DMB.
 
-Na wspolczesnym systemie Linux teoretyznie powinno
+Kompilacja
+==========
+
+Na wspolczesnym systemie Linux teoretycznie powinno
 wystarczyc "make", oczywiscie po zainstalowaniu
 odpowiednich paczek devel.
 
-Powodzenia!
+Potrzebne biblioteki
+====================
+* libboost
+* ncursesw (ew. BSD curses).
 
-Linux:
+Kompilator
+==========
+gcc (g++).
 
+Linux
+=====
 make
 make strip
 
-Pod NetBSD:
-
+Pod NetBSD
+==========
 make -f Makefile-NetBSD
 make strip
 
-Tym bardziej powodzenia ^^!
+(I analogicznie co do innych Makefile's).
 
-//DMB
+Binarki
+=======
+W katalogu "binaries" sa gotowe binarki (uwaga: nie wszystkie
+byly testowane).
 
-(For English users -- this is at least Polish software, and Polish Chat, so you need to know Polish language anyway.)
+*//DMB, styczen 2025
