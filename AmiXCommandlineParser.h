@@ -39,6 +39,7 @@ class AmiXCommandlineParser : public CommandlineParser
       {
         this->useAttr = false;
       }
+      /*
       else if (option == "-latin2" || upperoption == "LATIN2")
       {
         this->latin2 = true;
@@ -47,6 +48,7 @@ class AmiXCommandlineParser : public CommandlineParser
       {
         this->cud = true;
       }
+      */
       else if (option == "-debug" || upperoption == "DEBUG")
       {
         this->debug = true;
@@ -163,9 +165,8 @@ class AmiXCommandlineParser : public CommandlineParser
         fprintf(fh, "[-askpassw] [-nick <nick>] \\\n"
                     "[-nicklistwidth <width of nicklist>] [-noattr] \\\n"
                     "[-period <interval>] [-port <port>] [-room <room>] \\\n"
-                    "[-server <host>] [-log <log filename>] [-oldlog "
-                    "<logfilename>] \\\n"
-                    "[-antiidle <interval>] [-nohtml] [-latin2] [-old]%c",
+                    "[-server <host>] [-log <log filename>] [-oldlog <logfilename>] \\\n"
+                    "[-antiidle <interval>] [-nohtml] [-old]%c",
                     final ? '\n' : ' ');
       }
       else
