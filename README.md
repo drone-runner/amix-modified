@@ -30,7 +30,9 @@ $ make strip
 
 Pod NetBSD
 ==========
+
 $ make -f Makefile-NetBSD
+
 $ make strip
 
 (I analogicznie co do innych Makefile's).
