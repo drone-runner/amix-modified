@@ -2,7 +2,7 @@
 so you would need to know Polish language anyway.)
 
 *Ta wersja zostala zmodyfikowana pod czat polfan.pl
-w styczniu roku 2025 przez uzytkownika Polfanu -- DMB.
+w styczniu roku 2025 przez uzytkownika Polfanu -- DMB.*
 
 Kompilacja
 ==========
@@ -18,17 +18,20 @@ Potrzebne biblioteki
 
 Kompilator
 ==========
+
 gcc (g++).
 
 Linux
 =====
-make
-make strip
+
+$ make
+
+$ make strip
 
 Pod NetBSD
 ==========
-make -f Makefile-NetBSD
-make strip
+$ make -f Makefile-NetBSD
+$ make strip
 
 (I analogicznie co do innych Makefile's).
 
@@ -37,4 +40,4 @@ Binarki
 W katalogu "binaries" sa gotowe binarki (uwaga: nie wszystkie
 byly testowane).
 
-*//DMB, styczen 2025
+*//DMB, styczen 2025*
