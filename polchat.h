@@ -72,7 +72,7 @@ class roomname
       this->room =r;
     }
 
-    bool operator==(roomname cmp)
+    volatile bool operator==(roomname cmp)
     {
       return cmp.name == this->name && cmp.room == this->room;
     }
