@@ -32,8 +32,6 @@ WINDOW *stdscr;
 int main(int argc, char *argv[])
 {
 
-reco:
-
   short nickStatus[2] = {0x0582, 0x0001};
   AmiXCommandlineParser options(argc, argv);
 
@@ -161,8 +159,10 @@ reco:
 	    if (options.enterpoll) {
 		    --enterpollcnt;
 		    if (enterpollcnt <= 0) {
-			    enterpollcnt = EPUSECS;
-			    goto reco;
+			    delete connection;
+			    delete interface;
+			    closelog();
+			    execv(argv[0], argv);
 		    }
 	    }
       usleep(1);
@@ -257,7 +257,7 @@ reco:
 	  delete connection;
 	  delete interface;
 	  closelog();
-	  goto reco;
+	  execv(argv[0], argv);
         }
         else if (0 == ncsstrncmp(inputstring, "/busy ", 6) || 0 == ncsstrncmp(inputstring, "/busy", 6))
         {
