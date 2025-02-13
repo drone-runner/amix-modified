@@ -120,6 +120,10 @@ class AmiXCommandlineParser : public CommandlineParser
       {
         this->oldSchool = true;
       }
+      else if (option == "-enterpoll" || upperoption == "ENTERPOLL")
+      {
+        this->enterpoll = true;
+      }
       else
       {
         CommandlineParser::parseArg(option, upperoption);
@@ -148,6 +152,7 @@ class AmiXCommandlineParser : public CommandlineParser
     double period;
     LogState log;
     bool oldSchool;
+    bool enterpoll;
 
     virtual void help(bool posix = true,
                       FILE * fh = NULL,
@@ -166,7 +171,7 @@ class AmiXCommandlineParser : public CommandlineParser
                     "[-nicklistwidth <width of nicklist>] [-noattr] \\\n"
                     "[-period <interval>] [-port <port>] [-room <room>] \\\n"
                     "[-server <host>] [-log <log filename>] [-oldlog <logfilename>] \\\n"
-                    "[-antiidle <interval>] [-nohtml] [-old]%c",
+                    "[-antiidle <interval>] [-nohtml] [-old] [-enterpoll]%c",
                     final ? '\n' : ' ');
       }
       else
@@ -200,6 +205,7 @@ class AmiXCommandlineParser : public CommandlineParser
       this->period = 1.0;
       this->antiidle = 0;
       this->oldSchool = false;
+      this->enterpoll = false;
 
       if (final)
       {

@@ -21,7 +21,7 @@ int run = -1;
 int connected = 0;
 int askpassw = 0;
 std::string pass = "";
-std::string nick = "AmiX_user";
+std::string nick = "Uzytkownik_AmiX";
 int antiidle = 0;
 bool antiidle_sent = false;
 time_t last = 0;
@@ -34,6 +34,7 @@ chat chatrooms;
 int colourt[8] = {COLOR_BLACK, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_BLACK, COLOR_CYAN, COLOR_BLUE};
 int colourop = COLOR_RED;
 
+bool enterpoll = false;
 
 nicknode::nicknode(std::string & nn, std::string & nc, short ns)
 {

@@ -25,6 +25,8 @@
 #include "AmiXCommandlineParser.h"
 #include "PolchatConnection.h"
 
+#define EPUSECS 6000
+
 WINDOW *stdscr;
 
 int main(int argc, char *argv[])
@@ -48,6 +50,8 @@ reco:
   period = options.period;
   antiidle = options.antiidle;
   nick = options.nick;
+  // abuse
+  int enterpollcnt = EPUSECS;
 
   setlocale(LC_ALL, "");
 
@@ -154,6 +158,13 @@ reco:
     connection = new PolchatConnection(options.host, options.port, options.period);
     while (run || connected)
     {
+	    if (options.enterpoll) {
+		    --enterpollcnt;
+		    if (enterpollcnt <= 0) {
+			    enterpollcnt = EPUSECS;
+			    goto reco;
+		    }
+	    }
       usleep(1);
       switch (connection->getState())
       {
