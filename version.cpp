@@ -10,7 +10,11 @@
 #include <netdb.h>
 
 #include "interface.h"
+#ifdef ABUSE
+#include "abuse-version.h"
+#else
 #include "version.h"
+#endif
 #include "polchat.h"
 
 #define TM const struct tm

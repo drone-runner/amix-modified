@@ -72,7 +72,6 @@ class amixInterface
   public:
     int nicklist_w;
     bool useattr;
-    bool latin2;
 
     amixInterface(bool = false);
     ~amixInterface();

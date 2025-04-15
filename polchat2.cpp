@@ -13,7 +13,11 @@
 #include "polchat2.h"
 #include "interface.h"
 #include "temp.h"
+#ifdef ABUSE
+#include "abuse-version.h"
+#else
 #include "version.h"
+#endif
 #include "PolchatConnection.h"
 
 part::part(tank & prt)
