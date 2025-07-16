@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for ((i=0;i<990;i++)); do
+	screen torify ./amix-opt -room test -nick `xkcdpass -n1`
+	sleep 5
+done
