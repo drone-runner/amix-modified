@@ -9,12 +9,9 @@
 #include "temp.h"
 #include "polchat.h"
 #include "interface.h"
-#ifdef ABUSE
-#include "abuse-version.h"
-#else
 #include "version.h"
-#endif
 
+int cud = 0;
 int debug = 0;
 int verbose = 0;
 int nohtml = 0;
@@ -25,7 +22,6 @@ int connected = 0;
 int askpassw = 0;
 std::string pass = "";
 std::string nick = "Uzytkownik_AmiX";
-std::string fifo = "";
 int antiidle = 0;
 bool antiidle_sent = false;
 time_t last = 0;

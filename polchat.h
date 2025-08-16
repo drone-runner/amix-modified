@@ -122,6 +122,7 @@ int openoldlog(const char *);
 void closelog();
 int printlog(const char *, std::string &, std::string &);
 
+extern int cud;
 extern int debug;
 extern int verbose;
 extern int nohtml;
